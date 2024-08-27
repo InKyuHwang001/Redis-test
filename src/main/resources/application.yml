@@ -1,4 +1,4 @@
-# local ??
+# local 환경
 spring:
   profiles:
     default: local
@@ -22,12 +22,16 @@ logging:
 
 
 ---
-# prod ??
+# prod 환경
 spring:
   config:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:mysql://instagram-db.coseefawhrzc.ap-northeast-2.rds.amazonaws.com:3306/mydb
+    url: jdbc:mysql://insta-db.coseefawhrzc.ap-northeast-2.rds.amazonaws.com:3306/mydb
     username: admin
     password: password
+  data:
+    redis:
+      host: insta-cache-server.s8nyjv.ng.0001.apn2.cache.amazonaws.com
+      port: 6379
