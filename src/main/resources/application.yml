@@ -3,7 +3,7 @@ spring:
   profiles:
     default: local
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb
+    url: jdbc:mysql://host.docker.internal:3306/mydb
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,12 +13,13 @@ spring:
     show-sql: true
   data:
     redis:
-      host: localhost
+      host: cache-server
       port: 6379
 
 logging:
   level:
     org.springframework.cache: trace
+
 
 ---
 # prod ??
@@ -27,6 +28,6 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:mysql://insta-db.c16ww6cmo3r6.ap-northeast-2.rds.amazonaws.com:3306/mydb
+    url: jdbc:mysql://instagram-db.coseefawhrzc.ap-northeast-2.rds.amazonaws.com:3306/mydb
     username: admin
     password: password
